@@ -7,11 +7,12 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, Image} from 'react-native';
 import Hello from './src/components/Hello';
 import Counter from './src/components/Counter';
 import PlayerInput from './src/components/PlayerInput';
 import PlayerList from './src/components/PlayerList';
+import PlayerImage from './src/assets/player.jpg'
 
 
 const instructions = Platform.select({
@@ -34,7 +35,8 @@ export default class App extends Component {
     const players = [...this.state.players];
     players.push({
       id: Math.random() * 10,
-      name: this.state.playerName
+      name: this.state.playerName,
+      image: PlayerImage
     });
 
     this.setState({
