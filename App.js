@@ -11,6 +11,8 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import Hello from './src/components/Hello';
 import Counter from './src/components/Counter';
 import PlayerInput from './src/components/PlayerInput';
+import PlayerList from './src/components/PlayerList';
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -23,8 +25,31 @@ const instructions = Platform.select({
 export default class App extends Component {
 
   state = {
-    playerName: "",
+    playerName: "Messi",
     players: []
+  }
+
+  addPlayer = () => {
+
+    const players = [...this.state.players];
+    players.push({
+      id: Math.random() * 10,
+      name: this.state.playerName
+    });
+
+    this.setState({
+      players: players
+    }, () => {
+      console.log(this.state.players);
+    });
+    
+  }
+
+  changePlayer = (text) => {
+
+    this.setState({
+      playerName: text
+    });
   }
 
   render() {
@@ -37,8 +62,10 @@ export default class App extends Component {
 
         {/* <Counter />
         <Counter /> */}
-        <PlayerInput/>
-
+        <PlayerInput playerName={this.state.playerName} 
+                                  change={this.changePlayer}
+                                  save= {this.addPlayer}/>
+        <PlayerList players={this.state.players}/>
       </View>
     );
   }

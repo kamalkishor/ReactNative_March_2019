@@ -21,3 +21,9 @@ fn();
 
 obj.print.call(emp);
 obj.print();
+
+
+var numbers = [1,2,3,4,5];
+
+var squares = numbers.map((item) => item * item);
+console.log(squares);

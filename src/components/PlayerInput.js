@@ -5,11 +5,14 @@ import {View, TextInput, Button, StyleSheet} from 'react-native';
 class PlayerInput extends Component{
 
     render(){
+        
         return (
 
             <View style={styles.container}>
-                <TextInput style={styles.input} placeholder="PlayerName"/>
-                <Button style={styles.button} title="Add"/>
+                <TextInput style={styles.input} placeholder="PlayerName" 
+                                            value={this.props.playerName}
+                                            onChangeText={this.props.change}/>
+                <Button style={styles.button} title="Add" onPress={this.props.save}/>
             </View>
             
         );
