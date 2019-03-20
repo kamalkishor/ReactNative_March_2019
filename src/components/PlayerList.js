@@ -3,7 +3,7 @@ import {View, Text, Image, ScrollView, TouchableOpacity, Alert} from 'react-nati
 
 class PlayerList extends Component{
 
-    display= (evt, name) => {
+    display= (name) => {
 
         Alert.alert("Player Information", name, [
             {text: 'OK', onPress: () => console.log("OK Pressed")}

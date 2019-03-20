@@ -7,12 +7,14 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Image} from 'react-native';
+import {Platform, StyleSheet, Text, View, Image, Button} from 'react-native';
 import Hello from './src/components/Hello';
 import Counter from './src/components/Counter';
 import PlayerInput from './src/components/PlayerInput';
 import PlayerList from './src/components/PlayerList';
 import PlayerImage from './src/assets/player.jpg'
+import ReduxCounter from './src/components/ReduxCounter';
+import Search from './src/components/Search';
 
 
 const instructions = Platform.select({
@@ -24,6 +26,10 @@ const instructions = Platform.select({
 
 
 export default class App extends Component {
+
+  static navigationOptions = {
+    title: "Home"
+  }
 
   state = {
     playerName: "Messi",
@@ -60,14 +66,20 @@ export default class App extends Component {
         <Text style={styles.welcome}>Welcome to React Native!!!!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
+
+        <Button title="Navigate" onPress={() => {this.props.navigation.navigate("counter")}}></Button>
+
         {/* <Hello message="ReactNative"/> */}
 
         {/* <Counter />
         <Counter /> */}
+        {/* <ReduxCounter/>
         <PlayerInput playerName={this.state.playerName} 
                                   change={this.changePlayer}
                                   save= {this.addPlayer}/>
-        <PlayerList players={this.state.players}/>
+        <PlayerList players={this.state.players}/> */}
+
+        <Search/>
       </View>
     );
   }

@@ -5,6 +5,10 @@ import {View, Text, Button} from 'react-native';
 
 class Counter extends Component{
 
+    static navigationOptions = {
+        title: "Counter"
+      }
+
     state = {
         count: 0
     };
@@ -37,6 +41,7 @@ class Counter extends Component{
 
                 <Button title="Increment" onPress={this.inc}/>
                 <Button title="Decrement" onPress={this.decr}/>
+                <Button title="Next" onPress={() => {this.props.navigation.navigate("redux")}}/>
             </View>
         );
 

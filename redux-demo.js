@@ -5,7 +5,6 @@ const initState = {
     count: 0,
     msg: "Hello"
 }
-
 //reducer
 var reducer = (state=initState, action) => {
 
@@ -23,11 +22,8 @@ var reducer = (state=initState, action) => {
             count: state.count + action.value
         }
     }
-
     return state;
 }
-
-
 //store
 const store = redux.createStore(reducer);
 
